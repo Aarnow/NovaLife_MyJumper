@@ -8,6 +8,7 @@ using System.Drawing;
 using Life.AreaSystem;
 using UIPanelManager;
 using Life.VehicleSystem;
+using Life.DB;
 
 namespace MyJumper
 {
@@ -76,7 +77,42 @@ namespace MyJumper
 
         public void Open(Player player)
         {
-            Debug.Log("open myjumper panel");
+            UIPanel panel = new UIPanel("MyJumper", UIPanel.PanelType.Tab).SetTitle($"MyJumper");
+         
+            panel.AddTabLine("Téléportation à un terrain", ui => PanelManager.NextPanel(player, ui, () => SetAreaId(player)));
+            /*panel.AddTabLine("Téléportation à un véhicule", ui => Debug.Log("tp vehicle"));
+            panel.AddTabLine("Téléportation à un joueur", ui => Debug.Log("tp player"));
+            panel.AddTabLine("Téléportation à une société", ui => Debug.Log("tp biz"));*/
+
+
+            panel.AddButton("Sélectionner", ui => ui.SelectTab());
+            panel.AddButton("Fermer", ui => PanelManager.Quit(ui, player));
+
+            player.ShowPanelUI(panel);
+        }
+
+        public void SetAreaId(Player player)
+        {
+            UIPanel panel = new UIPanel("MyJumper", UIPanel.PanelType.Input).SetTitle($"Téléportation à un terrain");
+
+            panel.inputPlaceholder = "Identifiant du terrain";
+
+            panel.AddButton("Sélectionner", ui =>
+            {
+                if(ui.inputText.Length > 0 && uint.TryParse(ui.inputText, out uint areaId))
+                {
+                    LifeArea area = Nova.a.GetAreaById(areaId);
+                    if (area != null)
+                    {
+                        Vector3 spawn = area.instance.spawn;
+                        player.setup.TargetSetPosition(new Vector3(spawn.x, spawn.y, spawn.z));
+                        PanelManager.NextPanel(player, ui, () => Open(player));
+                    } else PanelManager.Notification(player, "Erreur", "Aucun terrain ne semble correspondre à votre identifiant.", NotificationManager.Type.Error);
+                } else PanelManager.Notification(player, "Erreur", "Vous devez indiquer l'identifiant du terrain.", NotificationManager.Type.Error);
+            });
+            panel.AddButton("Fermer", ui => PanelManager.Quit(ui, player));
+
+            player.ShowPanelUI(panel);
         }
     }
 }
