@@ -7,6 +7,7 @@ using Life.Network;
 using System.Drawing;
 using Life.AreaSystem;
 using UIPanelManager;
+using Life.VehicleSystem;
 
 namespace MyJumper
 {
@@ -22,7 +23,7 @@ namespace MyJumper
         {
             base.OnPluginInit();
 
-            new SChatCommand("/tp", "Permet d'aller sur un terrain", "/tp areaId", (player, arg) =>
+            new SChatCommand("/tpa", "Permet d'aller sur un terrain", "/tpa areaId", (player, arg) =>
             {
                 if (player.IsAdmin)
                 {
@@ -36,6 +37,24 @@ namespace MyJumper
                         } else PanelManager.Notification(player, "Erreur", "Aucun terrain ne semble correspondre à votre identifiant.", NotificationManager.Type.Error);
                     } else PanelManager.Notification(player, "Erreur", "Vous devez indiquer l'identifiant du terrain en paramètre. (exemple: /tp 1)", NotificationManager.Type.Error);
                 }  else PanelManager.Notification(player, "Erreur", "Vous n'avez pas les permissions d'accéder à cette commande.", NotificationManager.Type.Error);
+            }).Register();
+
+            new SChatCommand("/tpv", "Permet d'aller sur un véhicule", "/tpv plateId", (player, arg) =>
+            {
+                if (player.IsAdmin)
+                {
+                    if (arg[0] != null)
+                    {
+                        LifeVehicle vehicle = Nova.v.GetVehicle(arg[0].ToUpper());
+                        if (vehicle != null)
+                        {
+                            player.setup.TargetSetPosition(new Vector3(vehicle.x, vehicle.y+3, vehicle.z));
+                        }
+                        else PanelManager.Notification(player, "Erreur", "Aucun véhicule ne semble correspondre à votre identifiant.", NotificationManager.Type.Error);
+                    }
+                    else PanelManager.Notification(player, "Erreur", "Vous devez indiquer la plaque du véhicule en paramètre. (exemple: /tpv RB-364-EP)", NotificationManager.Type.Error);
+                }
+                else PanelManager.Notification(player, "Erreur", "Vous n'avez pas les permissions d'accéder à cette commande.", NotificationManager.Type.Error);
             }).Register();
 
             //MyMenu
