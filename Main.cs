@@ -4,6 +4,9 @@ using System;
 using UnityEngine;
 using MyMenu.Entities;
 using Life.Network;
+using System.Drawing;
+using Life.AreaSystem;
+using UIPanelManager;
 
 namespace MyJumper
 {
@@ -18,6 +21,22 @@ namespace MyJumper
         public override void OnPluginInit()
         {
             base.OnPluginInit();
+
+            new SChatCommand("/tp", "Permet d'aller sur un terrain", "/tp areaId", (player, arg) =>
+            {
+                if (player.IsAdmin)
+                {
+                    if (arg[0] != null && uint.TryParse(arg[0], out uint areaId))
+                    {
+                        LifeArea area = Nova.a.GetAreaById(areaId);
+                        if (area != null)
+                        {
+                            Vector3 spawn = area.instance.spawn;
+                            player.setup.TargetSetPosition(new Vector3(spawn.x, spawn.y, spawn.z));
+                        } else PanelManager.Notification(player, "Erreur", "Aucun terrain ne semble correspondre à votre identifiant.", NotificationManager.Type.Error);
+                    } else PanelManager.Notification(player, "Erreur", "Vous devez indiquer l'identifiant du terrain en paramètre. (exemple: /tp 1)", NotificationManager.Type.Error);
+                }  else PanelManager.Notification(player, "Erreur", "Vous n'avez pas les permissions d'accéder à cette commande.", NotificationManager.Type.Error);
+            }).Register();
 
             //MyMenu
             try

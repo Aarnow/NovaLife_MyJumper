@@ -1,4 +1,4 @@
-# Novalife Plugin MyJunmper
+# Novalife Plugin MyJumper
 
 Ce plugin Novalife MyJumper permet...
 
@@ -16,7 +16,7 @@ Ce plugin Novalife MyJumper permet...
 
 ## Utilisation
 
-Le Plugin Myjumper...
+Le Plugin MyJumper...
 
 1. en cours..
 
