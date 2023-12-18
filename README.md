@@ -2,16 +2,16 @@
 
 Ce plugin Novalife MyJumper permet...
 
-## Table des Matières
+## Table des MatiÃ¨res
 
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-- [Fonctionnalités](#fonctionnalités)
-- [Droits de Propriété Intellectuelle](#droits-de-propriété-intellectuelle)
+- [FonctionnalitÃ©s](#fonctionnalitÃ©s)
+- [Droits de PropriÃ©tÃ© Intellectuelle](#droits-de-propriÃ©tÃ©-intellectuelle)
 
 ## Installation
 
-1. Téléchargez le fichier `MyJumper.dll` depuis la page des releases de ce dépôt. 
+1. TÃ©lÃ©chargez le fichier `MyJumper.dll` depuis la page des releases de ce dÃ©pÃ´t. 
 2. Ajoutez le fichier `MyJumper.dll` dans le dossier des plugins de votre serveur Novalife.
 
 ## Utilisation
@@ -20,17 +20,17 @@ Le Plugin MyJumper...
 
 1. en cours..
 
-## Fonctionnalités
+## FonctionnalitÃ©s
 
 en cours..
 
 ```csharp
 ```
 
-## Droits de Propriété Intellectuelle
+## Droits de PropriÃ©tÃ© Intellectuelle
 
 Je vous demande simplement de respecter le temps que j'ai mis dans ce plugin.  
-Merci de ne pas vous approprier le plugin, de ne pas le copier bêtement, et de ne pas faire des trucs étranges avec.
+Merci de ne pas vous approprier le plugin, de ne pas le copier bÃªtement, et de ne pas faire des trucs Ã©tranges avec.
 
 Pour discuter, contactez-moi sur discord: Aarnow  
 Serveur discord: https://discord.gg/8j2suEE9Mf
