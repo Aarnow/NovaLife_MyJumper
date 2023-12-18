@@ -1,6 +1,7 @@
+![Nom de l'image](https://cdn.discordapp.com/attachments/517055230756782095/1186259807351619624/myjumper-ico.png?ex=65929989&is=65802489&hm=87b9468f336cb1bbfa4e213b2e7c382562996f4917c63291a1fe12a232b2d160&)
 # Novalife Plugin MyJumper
 
-Ce plugin Novalife MyJumper permet...
+Ce plugin Novalife MyJumper permet de se téléporter sur un terrain, un véhicule, une société ou d'observer un joueur en cours de rôleplay.
 
 ## Table des Matières
 
@@ -16,16 +17,19 @@ Ce plugin Novalife MyJumper permet...
 
 ## Utilisation
 
-Le Plugin MyJumper...
+Le Plugin MyJumper est accessible aux administrateur en service actif.
 
-1. en cours..
+1. Activez votre service administrateur.
+2. Ouvrez MyMenu avec la touche définie par votre serveur.
+3. Sélectionnez MyJumper.
 
 ## Fonctionnalités
 
-en cours..
-
-```csharp
-```
+En accédant à MyJumper, vous pouvez:
+- vous téléporter sur un terrain en utilisant son identifiant
+- vous téléporter sur un véhicule en utilisant sa plaque d'immatriculation.
+- vous téléporter sur le terrain d'une société en utilisant son identifiant.
+- observer un joueur en plein rôleplay.
 
 ## Droits de Propriété Intellectuelle
 
